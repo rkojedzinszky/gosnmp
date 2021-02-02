@@ -60,8 +60,8 @@ RequestLoop:
 			break RequestLoop
 		}
 
-		if response.Error == NoSuchName {
-			x.Logger.Print("Walk terminated with NoSuchName")
+		if response.Error != NoError {
+			x.Logger.Printf("Walk terminated with %s", response.Error.String())
 			break RequestLoop
 		}
 
